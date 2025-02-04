@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine</title>
+    <style>
+        body {
+            background-color: hotpink;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            font-family: 'Arial', sans-serif;
+            position: relative;
+        }
+        .flower {
+            position: absolute;
+            color: white;
+            font-size: 24px;
+            animation: float 5s infinite ease-in-out;
+        }
+        @keyframes float {
+            0% { transform: translateY(0) scale(1); opacity: 1; }
+            50% { transform: translateY(-100px) scale(1.2); opacity: 0.7; }
+            100% { transform: translateY(-200px) scale(0.8); opacity: 0; }
+        }
+        .envelope {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            position: relative;
+        }
+        .question {
+            font-size: 24px;
+            font-style: italic;
+            font-weight: bold;
+            font-family: cursive;
+            margin-bottom: 20px;
+        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .yes {
+            background: #28a745;
+            color: white;
+        }
+        .no {
+            background: #dc3545;
+            color: white;
+        }
+        .yes:hover { background: #218838; }
+        .no:hover { background: #c82333; }
+    </style>
+</head>
+<body>
+    <div class="envelope">
+        <div class="question">WILL YOU BE MY VALENTINE? ❤️</div>
+        <div class="buttons">
+            <button class="yes" onclick="alert('Yay! ❤️')">YES</button>
+            <button class="no" onclick="alert('Oh no! 💔')">NO</button>
+        </div>
+    </div>
+    <script>
+        function createFlower() {
+            const flower = document.createElement('div');
+            flower.classList.add('flower');
+            flower.innerHTML = '🌸';
+            flower.style.left = Math.random() * window.innerWidth + 'px';
+            flower.style.top = window.innerHeight + 'px';
+            document.body.appendChild(flower);
+            setTimeout(() => flower.remove(), 5000);
+        }
+        setInterval(createFlower, 500);
+    </script>
+</body>
+</html>
